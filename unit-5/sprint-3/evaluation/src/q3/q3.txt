@@ -1,0 +1,8 @@
+mysql> select name from employee inner join manager on employee.managerId=manager.managerId and employee.salary>manager.salary;
+
+
++----------+
+| name     |
++----------+
+| Joe      |
++----------+

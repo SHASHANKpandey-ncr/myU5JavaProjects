@@ -1,0 +1,262 @@
+Q1) Perform the following queries:-
+
+
+1.Display details of employees in the HR department only.
+
+mysql> select * from employee;
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department  | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+|     1 | Sanjay   | Mehra    | HR          | P1      | Hyderabad | 01/12/1976 | M      |  50000 |
+|     2 | Ananya   | Mishra   | Admin       | P2      | Delhi     | 02/05/1968 | F      |  75000 |
+|     3 | Rohan    | Diwan    | Account     | P1      | Mumbai    | 01/01/1980 | M      |  90000 |
+|     4 | Sonia    | Kulkarni | HR          | P3      | Hyderabad | 02/05/1992 | F      |  50000 |
+|     5 | Priya    | Thakur   | Development | P2      | Bangalore | 23/02/1992 | F      | 100000 |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee where department="HR";
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+|     1 | Sanjay   | Mehra    | HR         | P1      | Hyderabad | 01/12/1976 | M      |  50000 |
+|     4 | Sonia    | Kulkarni | HR         | P3      | Hyderabad | 02/05/1992 | F      |  50000 |
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+2 rows in set (0.00 sec)
+
+//*******************************************************
+
+
+2.List number of female employees.
+
+mysql> select * from employee;
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department  | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+|     1 | Sanjay   | Mehra    | HR          | P1      | Hyderabad | 01/12/1976 | M      |  50000 |
+|     2 | Ananya   | Mishra   | Admin       | P2      | Delhi     | 02/05/1968 | F      |  75000 |
+|     3 | Rohan    | Diwan    | Account     | P1      | Mumbai    | 01/01/1980 | M      |  90000 |
+|     4 | Sonia    | Kulkarni | HR          | P3      | Hyderabad | 02/05/1992 | F      |  50000 |
+|     5 | Priya    | Thakur   | Development | P2      | Bangalore | 23/02/1992 | F      | 100000 |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select count(*) from employee where Gender = "F";
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.00 sec)
+
+//*******************************************************
+
+
+3. Display all female HR employees.
+
+mysql> select * from employee;
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department  | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+|     1 | Sanjay   | Mehra    | HR          | P1      | Hyderabad | 01/12/1976 | M      |  50000 |
+|     2 | Ananya   | Mishra   | Admin       | P2      | Delhi     | 02/05/1968 | F      |  75000 |
+|     3 | Rohan    | Diwan    | Account     | P1      | Mumbai    | 01/01/1980 | M      |  90000 |
+|     4 | Sonia    | Kulkarni | HR          | P3      | Hyderabad | 02/05/1992 | F      |  50000 |
+|     5 | Priya    | Thakur   | Development | P2      | Bangalore | 23/02/1992 | F      | 100000 |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee where (Gender="F" and Department="HR");
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+|     4 | Sonia    | Kulkarni | HR         | P3      | Hyderabad | 02/05/1992 | F      |  50000 |
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+1 row in set (0.00 sec)
+
+//*******************************************************
+
+
+4.Display all the names whose name starts with vowels
+
+mysql> select * from employee;
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department  | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+|     1 | Sanjay   | Mehra    | HR          | P1      | Hyderabad | 01/12/1976 | M      |  50000 |
+|     2 | Ananya   | Mishra   | Admin       | P2      | Delhi     | 02/05/1968 | F      |  75000 |
+|     3 | Rohan    | Diwan    | Account     | P1      | Mumbai    | 01/01/1980 | M      |  90000 |
+|     4 | Sonia    | Kulkarni | HR          | P3      | Hyderabad | 02/05/1992 | F      |  50000 |
+|     5 | Priya    | Thakur   | Development | P2      | Bangalore | 23/02/1992 | F      | 100000 |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select EmpFname from employee where (EmpFname like 'a%' or EmpFname like 'e%' or EmpFname like 'i%' or EmpFname like 'o%' or EmpFname like 'u%');
++----------+
+| EmpFname |
++----------+
+| Ananya   |
++----------+
+1 row in set (0.00 sec)
+
+//*******************************************************
+
+
+5.List all the males whose name has a vowel as the 2nd character.
+
+mysql> select * from employee;
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department  | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+|     1 | Sanjay   | Mehra    | HR          | P1      | Hyderabad | 01/12/1976 | M      |  50000 |
+|     2 | Ananya   | Mishra   | Admin       | P2      | Delhi     | 02/05/1968 | F      |  75000 |
+|     3 | Rohan    | Diwan    | Account     | P1      | Mumbai    | 01/01/1980 | M      |  90000 |
+|     4 | Sonia    | Kulkarni | HR          | P3      | Hyderabad | 02/05/1992 | F      |  50000 |
+|     5 | Priya    | Thakur   | Development | P2      | Bangalore | 23/02/1992 | F      | 100000 |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select EmpFname from employee where ((EmpFname like '_a%' or EmpFname like '_e%' or EmpFname like '_i%' or EmpFname like '_o%' or EmpFname like '_u%')and Gender="M");
++----------+
+| EmpFname |
++----------+
+| Sanjay   |
+| Rohan    |
++----------+
+2 rows in set (0.00 sec)
+
+
+//*******************************************************
+
+
+6.Name of all departments
+
+mysql> select * from employee;
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department  | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+|     1 | Sanjay   | Mehra    | HR          | P1      | Hyderabad | 01/12/1976 | M      |  50000 |
+|     2 | Ananya   | Mishra   | Admin       | P2      | Delhi     | 02/05/1968 | F      |  75000 |
+|     3 | Rohan    | Diwan    | Account     | P1      | Mumbai    | 01/01/1980 | M      |  90000 |
+|     4 | Sonia    | Kulkarni | HR          | P3      | Hyderabad | 02/05/1992 | F      |  50000 |
+|     5 | Priya    | Thakur   | Development | P2      | Bangalore | 23/02/1992 | F      | 100000 |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select distinct(department) from employee;
++-------------+
+| department  |
++-------------+
+| HR          |
+| Admin       |
+| Account     |
+| Development |
++-------------+
+4 rows in set (0.00 sec)
+
+//*******************************************************
+
+
+
+7.all the female employees earning less than 75000.
+
+mysql> select * from employee;
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department  | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+|     1 | Sanjay   | Mehra    | HR          | P1      | Hyderabad | 01/12/1976 | M      |  50000 |
+|     2 | Ananya   | Mishra   | Admin       | P2      | Delhi     | 02/05/1968 | F      |  75000 |
+|     3 | Rohan    | Diwan    | Account     | P1      | Mumbai    | 01/01/1980 | M      |  90000 |
+|     4 | Sonia    | Kulkarni | HR          | P3      | Hyderabad | 02/05/1992 | F      |  50000 |
+|     5 | Priya    | Thakur   | Development | P2      | Bangalore | 23/02/1992 | F      | 100000 |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select * from employee where (gender="f" and salary<75000);
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+|     4 | Sonia    | Kulkarni | HR         | P3      | Hyderabad | 02/05/1992 | F      |  50000 |
++-------+----------+----------+------------+---------+-----------+------------+--------+--------+
+1 row in set (0.00 sec)
+
+//*******************************************************
+
+
+
+8.count number of employees earning between 50k and 1 lakh.
+
+mysql> select * from employee;
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department  | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+|     1 | Sanjay   | Mehra    | HR          | P1      | Hyderabad | 01/12/1976 | M      |  50000 |
+|     2 | Ananya   | Mishra   | Admin       | P2      | Delhi     | 02/05/1968 | F      |  75000 |
+|     3 | Rohan    | Diwan    | Account     | P1      | Mumbai    | 01/01/1980 | M      |  90000 |
+|     4 | Sonia    | Kulkarni | HR          | P3      | Hyderabad | 02/05/1992 | F      |  50000 |
+|     5 | Priya    | Thakur   | Development | P2      | Bangalore | 23/02/1992 | F      | 100000 |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select count(*) from employee where (salary>50000 and salary<100000);
++----------+
+| count(*) |
++----------+
+|        2 |
++----------+
+1 row in set (0.00 sec)
+
+//*******************************************************
+
+
+9.count the number of projects.
+
+mysql> select * from employee;
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department  | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+|     1 | Sanjay   | Mehra    | HR          | P1      | Hyderabad | 01/12/1976 | M      |  50000 |
+|     2 | Ananya   | Mishra   | Admin       | P2      | Delhi     | 02/05/1968 | F      |  75000 |
+|     3 | Rohan    | Diwan    | Account     | P1      | Mumbai    | 01/01/1980 | M      |  90000 |
+|     4 | Sonia    | Kulkarni | HR          | P3      | Hyderabad | 02/05/1992 | F      |  50000 |
+|     5 | Priya    | Thakur   | Development | P2      | Bangalore | 23/02/1992 | F      | 100000 |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select count(distinct(project)) from employee;
++--------------------------+
+| count(distinct(project)) |
++--------------------------+
+|                        3 |
++--------------------------+
+1 row in set (0.01 sec)
+
+
+//*******************************************************
+
+
+10.Department wise count of employees.
+
+mysql> select * from employee;
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+| EmpID | EmpFname | EmpLname | Department  | Project | Address   | DOB        | Gender | Salary |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+|     1 | Sanjay   | Mehra    | HR          | P1      | Hyderabad | 01/12/1976 | M      |  50000 |
+|     2 | Ananya   | Mishra   | Admin       | P2      | Delhi     | 02/05/1968 | F      |  75000 |
+|     3 | Rohan    | Diwan    | Account     | P1      | Mumbai    | 01/01/1980 | M      |  90000 |
+|     4 | Sonia    | Kulkarni | HR          | P3      | Hyderabad | 02/05/1992 | F      |  50000 |
+|     5 | Priya    | Thakur   | Development | P2      | Bangalore | 23/02/1992 | F      | 100000 |
++-------+----------+----------+-------------+---------+-----------+------------+--------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select department, count(*) from employee group by department;
++-------------+----------+
+| department  | count(*) |
++-------------+----------+
+| HR          |        2 |
+| Admin       |        1 |
+| Account     |        1 |
+| Development |        1 |
++-------------+----------+
+4 rows in set (0.00 sec)
+

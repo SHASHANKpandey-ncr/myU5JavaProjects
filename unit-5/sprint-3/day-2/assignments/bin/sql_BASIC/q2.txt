@@ -1,0 +1,20 @@
+1.    What is the difference between a Unique Key and Primary Key?
+Ans.  
+
+	Primary Key: 
+1. Primary Key is used to identify all the records in a relation uniquely.
+2. Primary key can not have null value.
+3. Primary key can be only one per table.
+4. Primary key creats clustered index.
+
+    Unique key: 
+1. Unique key is also used to identify a records uniquely.
+2. Unique key can accept one null value.
+3. Unique key can be multiple in a table.
+4. Unique key creates non-clustered index.
+
+
+//**********************************************
+
+2.SQL is a case-sensitive language. (True or False)
+Ans. False. 

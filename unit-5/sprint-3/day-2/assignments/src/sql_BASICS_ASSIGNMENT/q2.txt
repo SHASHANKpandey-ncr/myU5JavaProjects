@@ -1,0 +1,24 @@
+Q2) Query the total population of all cities in CITY where
+District is California : 
+
+
+
+mysql> select * from city;
++------+---------------+-------------+------------+------------+
+| id   | name          | countrycode | district   | population |
++------+---------------+-------------+------------+------------+
+| 3878 | Scottdale     | USA         | Arizona    |     202705 |
+| 3965 | Corona        | USA         | California |      90000 |
+| 3973 | Concord       | USA         | California |     121780 |
+| 3977 | Cedar Rapids  | USA         | Iowa       |     120758 |
+| 3982 | Coral Springs | USA         | Florida    |      87456 |
++------+---------------+-------------+------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select sum(population) from city where district = "California";
++-----------------+
+| sum(population) |
++-----------------+
+|          211780 |
++-----------------+
+1 row in set (0.00 sec)

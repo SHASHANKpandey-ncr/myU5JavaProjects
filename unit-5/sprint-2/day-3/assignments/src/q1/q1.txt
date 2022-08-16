@@ -1,0 +1,12 @@
+Question 1:
+What is a race condition ?
+How will you find and solve race condition show with proper running code ?
+
+Ans. We can refer a race condition of a program as an abnormal or incorrect behavior of a program. 
+	 A race condition can be defined as a condition where two or more than two threads are concurrently
+	 executed and they compete together to get certain shared resources.
+	 
+	 For example and finding and resolution of Race condition, refer to package we in this project.
+	 
+	 
+		

@@ -1,0 +1,40 @@
+q2.A. What is normalization and why is it needed?
+Ans. Normalization is a process of organizing the data in database to avoid data
+	 redundancy, insertion anomaly, update anomaly & deletion anomaly. 
+	 
+	 The purpose of normalization is to maximize the efficiency of a database.
+	 
+q2.B. Explain the difference between an insert anomaly, update anomaly and delete anomaly.
+Ans.  
+		Employee Table:
+              emp_id   emp_name   emp_address   emp_dept
+              101        Rick        Delhi         D001
+              101        Rick        Delhi         D002
+              123 	 Maggie      Agra 	   D890
+              166        Glenn       Chennai       D900
+              166        Glenn       Chennai       D004
+              
+              
+The above table is not normalized. We will monitor the problems that we face when a table
+is not normalized.
+
+Update anomaly:
+ In the above table we have two rows for employee Rick as he
+belongs to two departments of the company. If we want to update the address of Rick
+then we have to update the same in two rows or the data will become inconsistent. If
+somehow, the correct address gets updated in one department but not in another then
+as per the database, Rick would be having two different addresses, which is not correct
+and would lead to inconsistent data.
+
+Insert anomaly: 
+Suppose a new employee joins the company, who is under training
+and currently not assigned to any department then we would not be able to insert the
+data into the table if emp_dept field doesn’t allow nulls.
+
+Delete anomaly: 
+Suppose, if at a point of time the company closes the department
+D890 then deleting the rows that are having emp_dept as D890 would also delete the
+information of employee Maggie since she is assigned only to this department.
+To overcome these anomalies we need to normalize the data.
+		
+	

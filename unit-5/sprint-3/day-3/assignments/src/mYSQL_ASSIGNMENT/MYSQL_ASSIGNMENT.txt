@@ -1,0 +1,30 @@
+mysql> select * from customers;
++-------------+------------+-----------+--------------+------------+----------+-------+----------+
+| customer_id | first_name | last_name | email        | address    | city     | state | zip_code |
++-------------+------------+-----------+--------------+------------+----------+-------+----------+
+|           1 | abc        | a         | abc@mail.com | 1st street | Chennai  | TN    | 60001    |
+|           2 | efg        | e         | efg@mail.com | 2nd street | Banglore | KA    | 50002    |
+|           3 | ijk        | i         | ijk@mail.com | 3rd street | Mumbai   | MH    | 40002    |
++-------------+------------+-----------+--------------+------------+----------+-------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from orders;
++----------+-------------+-------------------+
+| order_id | customer_id | order_placed_date |
++----------+-------------+-------------------+
+|        1 |           1 | 2016-11-11        |
+|        2 |           1 | 2016-10-01        |
+|        3 |           2 | 2016-06-01        |
+|        4 |           2 | 2015-06-01        |
+|        5 |           1 | 2015-06-01        |
++----------+-------------+-------------------+
+5 rows in set (0.00 sec)
+
+mysql> select email,count(*) from customers,orders where customers.customer_id=orders.customer_id and order_placed_date>'2015-12-31' group by email order by count(*) desc;;
++--------------+----------+
+| email        | count(*) |
++--------------+----------+
+| abc@mail.com |        2 |
+| efg@mail.com |        1 |
++--------------+----------+
+2 rows in set (0.00 sec)

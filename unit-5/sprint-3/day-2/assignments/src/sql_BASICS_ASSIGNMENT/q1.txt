@@ -1,0 +1,25 @@
+Q1) Query all columns for all American cities in the CITY table with
+populations larger than 100000. : 
+
+
+mysql> select * from city;
++------+---------------+-------------+------------+------------+
+| id   | name          | countrycode | district   | population |
++------+---------------+-------------+------------+------------+
+| 3878 | Scottdale     | USA         | Arizona    |     202705 |
+| 3965 | Corona        | USA         | California |      90000 |
+| 3973 | Concord       | USA         | California |     121780 |
+| 3977 | Cedar Rapids  | USA         | Iowa       |     120758 |
+| 3982 | Coral Springs | USA         | Florida    |      87456 |
++------+---------------+-------------+------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from city where population > 100000;
++------+--------------+-------------+------------+------------+
+| id   | name         | countrycode | district   | population |
++------+--------------+-------------+------------+------------+
+| 3878 | Scottdale    | USA         | Arizona    |     202705 |
+| 3973 | Concord      | USA         | California |     121780 |
+| 3977 | Cedar Rapids | USA         | Iowa       |     120758 |
++------+--------------+-------------+------------+------------+
+3 rows in set (0.00 sec)

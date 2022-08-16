@@ -1,0 +1,51 @@
+
+q1.A. Table 2.1 is said to be an unnormalized table. Why?
+Ans.  Table 2.1 is said to be an unnormalized table because the rule says 
+	  “each attribute of a table must have atomic(single) values”, most of the attributes
+	  for all the studentID violates that rule.
+	  
+q1.B.  Transform the unnormalized Table 2.1 into a first normal form (1NF) table. Show the
+	   transformed 1NF table. What is the primary key for this new INF table?
+	   
+Ans.         StudentID	   name	      LicenseNo	   CarReg	ReceiptNo(PK)	Date	OffenceCode Fine(RM)
+		F1011	  CK Fong	 P100	   JGK9201	 00-345	     10-03-2006	     2	       30
+		F1011	  CK Fong	 P100	   JGK9201	 00-690	     15-03-2006	     1	       20
+		F1011	  CK Fong	 P100	   JGK9201	 00-810	     20-03-2006	     2	       30
+		L782	  AdamJames	 P290	   JJL99	 00-459	     13-03-2006	     1	       20
+		H762	  MalaDewi	 P764	   JJK7654	 00-564	     12-03-2006	     3	       40
+		H762	  MalaDewi	 P764	   JJK7654	 00-770	     19-03-2006	     2	       30
+	   
+q1.C. Write the functional dependencies from the Transformed 1NF table.
+Ans. StudentId -> name, LicenseNo, CarReg
+	 ReceiptNo -> Date, OffenceCode, Fine
+	 
+	
+q1.D. As a last step convert the 1NF into 2NF.
+
+Ans. 	table1:
+	    StudentID(PK)  name	       LicenseNo   CarReg	
+		F1011	  CK Fong	 P100	   JGK9201	 
+		L782	  AdamJames	 P290	   JJL99	 
+		H762	  MalaDewi	 P764	   JJK7654	 
+		
+		table2:
+	  	      ReceiptNo(PK)	   Date	    OffenceCode	 Fine(RM)
+			 00-345	     10-03-2006	     2	           30
+			 00-690	     15-03-2006	     1	           20
+			 00-810	     20-03-2006	     2	           30
+			 00-459	     13-03-2006	     1	           20
+			 00-564	     12-03-2006	     3	           40
+			 00-770	     19-03-2006	     2	           30	
+			 
+			 table3:
+studentReciptID(PK)    StudentID	ReceiptNo	
+	   1         	 F1011	 	 00-345	     
+	   2         	 F1011	 	 00-690	     
+	   3         	 F1011	 	 00-810	     
+	   4         	 L782	 	 00-459	     
+	   5         	 H762	  	 00-564	     
+	   6         	 H762	  	 00-770	     			 	
+		
+		
+		
+		

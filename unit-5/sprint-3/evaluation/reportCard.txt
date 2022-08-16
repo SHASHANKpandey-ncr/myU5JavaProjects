@@ -1,0 +1,2 @@
+Ram total marks = 354 and average = 70
+sam total marks = 266 and average = 53

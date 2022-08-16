@@ -1,0 +1,20 @@
+2A) Explain ThreadPool Executor in java with an Example.
+Ans.
+     Use of ThreadPool executor in Java is to improve the use of different threads.
+     
+     It helps in creating a pool of threads and to execute them.
+     
+     We can use ThreadPool Executor to choose any number of Thread Executors and it helps to
+     execute the available threads in a optimum and sequential manner and also helps to reduce 
+     the overall execution time.
+     
+     All the APIs related to ThreadPool Executor can be found in java.util.concurrent package.
+     
+     
+     
+     For example please refer to class Q2_A_example in package q2.A(in the same package).
+     
+     
+     
+		
+

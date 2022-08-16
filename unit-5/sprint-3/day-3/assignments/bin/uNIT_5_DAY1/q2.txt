@@ -1,0 +1,37 @@
+mysql> select * from movie;
++----+-----------------+----------------+------+----------------+
+| id | title           | director       | year | length_minutes |
++----+-----------------+----------------+------+----------------+
+|  1 | toy story       | jhon lasseter  | 1995 |             81 |
+|  2 | a bug's life    | jhon lasseter  | 1998 |             95 |
+|  3 | toy story 2     | jhon lasseter  | 1999 |             93 |
+|  4 | Monsters, Inc   | Pete Docter    | 2001 |             92 |
+|  5 | Civil War       | Andrew Stanton | 2003 |            107 |
+|  6 | The Incredibles | Brad Bird      | 2004 |            116 |
++----+-----------------+----------------+------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from movie_rating;
++----------+--------+-----------------+----------------------+
+| movie_id | rating | domestic_rating | international_rating |
++----------+--------+-----------------+----------------------+
+|        5 |    8.2 |       380843261 |            555900000 |
+|        1 |    7.4 |       268492764 |            475066843 |
+|        3 |    8.0 |       206445654 |            417277164 |
+|        2 |    6.4 |       191452396 |            368400000 |
+|        4 |    7.9 |       245852179 |            239163000 |
+|        6 |    8.0 |       261441092 |            370001000 |
++----------+--------+-----------------+----------------------+
+6 rows in set (0.00 sec)
+
+mysql> select title,domestic_rating,international_rating from movie inner join movie_rating  on movie.id=movie_rating.movie_id and movie_rating.international_rating>movie_rating.domestic_rating order by movie_rating.rating desc;
++-----------------+-----------------+----------------------+
+| title           | domestic_rating | international_rating |
++-----------------+-----------------+----------------------+
+| Civil War       |       380843261 |            555900000 |
+| toy story 2     |       206445654 |            417277164 |
+| The Incredibles |       261441092 |            370001000 |
+| toy story       |       268492764 |            475066843 |
+| a bug's life    |       191452396 |            368400000 |
++-----------------+-----------------+----------------------+
+5 rows in set (0.00 sec)

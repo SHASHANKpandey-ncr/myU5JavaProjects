@@ -1,0 +1,68 @@
+Q. Explain different types of Normalisation forms in a DBMS with an Example Table.
+
+Ans. Types of normalization forms are as follows:
+
+1. First normal from (1NF)
+2. Second normal from (2NF)
+
+Before having a look at normalized form first let us have a look at a form which is NOT normalized:
+
+
+StudentId  		Name 		Aadhar 			BikeNo 		visitingNo
+			
+01				Aman		0123			delhi01			01
+											delhi02			02											
+02				Arjun		0145			delhi05			05
+											delhi04			04
+	
+	
+In above table one attribute/column is containing more that one entries/data hence it is known as 
+a non-normalized form.
+
+If we convert above table such that no repeating groups or data is present in any attribute/column 
+than it will be knon as 1NF :	
+
+StudentId  		Name 		Aadhar 			BikeNo 		visitingNo
+			
+01				Aman		0123			delhi01			01
+01				Aman		0123			delhi02			02												
+02				Arjun		0145			delhi05			05
+02				Arjun		0145			delhi04			04	
+
+
+and if we convert above table such that all the prime attribute are independent of subsets of cadidate
+keys than it will be known as a 2NF:
+
+
+
+Student table : 
+
+StudentId  		Name 		Aadhar 
+			
+01				Aman		0123
+02				Arjun		0145
+
+
+
+
+Bike table:
+
+ BikeNo 	visitingNo
+			
+delhi01			01
+delhi02			02												
+delhi05			05
+delhi04			04	
+
+
+
+StudentBike table :
+
+StudentBikeId       studentId       BikeNo
+1						01			delhi01
+2						01			delhi02
+3						02			delhi05
+4      					02			delhi04
+
+
+

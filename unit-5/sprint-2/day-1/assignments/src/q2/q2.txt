@@ -1,0 +1,32 @@
+Q2) Explain the Thread Life Cycle in Java with your
+own words.
+
+Ans. We can describe the Life cycle of a thread in java by the states in 
+	 which a thread exists. 
+	 
+	 In Java, a thread always exists in one of the following states :-
+	 
+	 1)  New state - It refers to the state when a new thread is just 
+	 				 created. The following statement can be referred as 
+	 				 New state of a thread : 
+	 				 
+	 				 Thread newThread= new Thread();
+	 				 
+	 				 
+	 2)  Runnable state - It refers to the state when a new thread is just 
+	 				 	  started. The following statement can be referred as 
+	 				  	  New state of a thread : 
+	 				 
+	 				      newThread.start(); 
+	 				      
+	 				   
+	 3)  Running state -  This is the state where the thread scheduler selects a thread
+	 					  and the thread is executed.	
+	 					  
+	 					  
+	 4)  Blocked state -  This is the state where the thread scheduler halts or blocks or pause 
+	 					  the thread.
+	 					  
+	 					  		 					  			      
+	 5)  Dead state -  This is the state where the thread is completely executed.	 				 
+	 				 

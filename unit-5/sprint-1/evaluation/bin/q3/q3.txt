@@ -1,0 +1,39 @@
+Q3.Explain upper bounded wildcards and lower bounded wildcards 
+   with an example.
+   
+   Ans -
+   
+   Upper Bound WildCards --
+   
+   Its use is to decrease the restrictions on a variable.
+   It restricts the unknown type to be a specific type or a sub-type.
+   It is used with "?" followed by the extends/implements keyword.
+   It basically provides sub-type access.
+   
+   Ex.
+   
+    List<? extends Number> 
+    
+    The above example conveys that List can be of any type which is 
+    sub-type of number. Like List<Integer> or  List<double> etc.
+    
+    
+    
+   Lower Bound WildCards --
+   
+   Its use is to decrease the restrictions on a variable.
+   It restricts the unknown type to be a specific type or a Super-type.
+   It is used with "?" followed by the super keyword.
+   It basically provides Super-type access.
+   
+   Ex.
+   
+    List<? super Integer> 
+    
+    The above example conveys that List can be of any type which is 
+    Super-type of number. Like List<Number>.
+    
+    
+   
+   
+   

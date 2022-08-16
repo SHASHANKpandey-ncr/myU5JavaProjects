@@ -1,0 +1,45 @@
+mysql> select * from student;
++------+--------+------------+------------+-------+
+| s_id | s_name | s_address  | s_phone    | s_age |
++------+--------+------------+------------+-------+
+| s1   | ram    | delhi      | 9455123451 | 18    |
+| s2   | ramesh | gurgaon    | 9455123351 | 18    |
+| s2   | suh    | chandigarh | 9455563351 | 20    |
+| s3   | sujit  | chandigarh | 9455563351 | 20    |
+| s4   | suresh | delhi      | 9455564851 | 18    |
+| s5   | ratan  | delhi      | 9455564551 | 20    |
++------+--------+------------+------------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from course;
++------+--------+
+| c_id | c_name |
++------+--------+
+| c1   | dsa    |
+| c2   | java   |
+| c3   | mern   |
++------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from student_course;
++------+------+
+| s_id | c_id |
++------+------+
+| s1   | c1   |
+| s1   | c3   |
+| s2   | c1   |
+| s3   | c2   |
+| s4   | c2   |
+| s4   | c3   |
+| s5   | c2   |
++------+------+
+7 rows in set (0.00 sec)
+
+mysql> select * from student inner join student_course on student.s_id=student_course.s_id and student_course.c_id=(select c_id from course where c_name="java") and student.s_address="delhi";
++------+--------+-----------+------------+-------+------+------+
+| s_id | s_name | s_address | s_phone    | s_age | s_id | c_id |
++------+--------+-----------+------------+-------+------+------+
+| s4   | suresh | delhi     | 9455564851 | 18    | s4   | c2   |
+| s5   | ratan  | delhi     | 9455564551 | 20    | s5   | c2   |
++------+--------+-----------+------------+-------+------+------+
+2 rows in set (0.00 sec)

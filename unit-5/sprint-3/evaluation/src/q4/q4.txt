@@ -1,0 +1,33 @@
+mysql> select * from employee;
++-------+----------+------------+------------+--------------------+-----------+
+| empid | empname  | department | contactno  | emailid            | empheadid |
++-------+----------+------------+------------+--------------------+-----------+
+|   101 | Isha     | E-101      | 1234567890 | isha@gmail.com     |       105 |
+|   102 | Priya    | E-104      | 1234567890 | priya@yahoo.com    |       103 |
+|   103 | Neha     | E-101      | 1234567890 | neha@gmail.com     |       101 |
+|   104 | Rahul    | E-102      | 1234567890 | rahul@yahoo.com    |       105 |
+|   105 | Abhishek | E-101      | 1234567890 | abhishek@gmail.com |       102 |
++-------+----------+------------+------------+--------------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select * from empdept;
++--------+---------------+----------+----------+
+| deptid | deptname      | dept_off | depthead |
++--------+---------------+----------+----------+
+| E-101  | HR            | Mondey   |      105 |
+| E-102  | Development   | Tuesday  |      101 |
+| E-103  | House Keeping | Saturday |      103 |
+| E-104  | Sales         | Sunday   |      104 |
+| E-105  | Purchase      | Tuesday  |      104 |
++--------+---------------+----------+----------+
+5 rows in set (0.00 sec)
+
+
+mysql> select empname from employee inner join empdept on employee.department=empdept.deptid and employee.empid=(select depthead from empdept where deptname="hr");
+
++----------+
+| empname  |
++----------+
+| Abhishek |
++----------+
+1 row in set (0.00 sec)
